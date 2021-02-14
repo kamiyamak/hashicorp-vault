@@ -1,0 +1,15 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: vault-rails-ingress
+  namespace: testkamiyamak
+  annotations:
+    kubernetes.io/ingress.class: nginx
+spec:
+  rules:
+  - host: vault-rails.istyle.local
+    http:
+      paths:
+      - backend:
+          serviceName: vault-rails-svc
+          servicePort: 3030
